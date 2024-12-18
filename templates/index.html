@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7fc;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #5c6bc0;
+    }
+
+    form {
+        width: 60%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    label {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+        color: #444;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background-color: #5c6bc0;
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #3f4c91;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 22px;
+        color: #5c6bc0;
+        margin-top: 30px;
+    }
+
+    .answer-container {
+        background-color: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .answer-container h3 {
+        font-size: 20px;
+        color: #333;
+    }
+
+    .answer-container p {
+        font-size: 16px;
+        color: #444;
+    }
+
+</style>
+<body>
+    <h1>Ask a Question</h1>
+    <form action="/api" method="POST">
+        <label for="query">Enter your question:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if question %}
+    <h3>Your Question: {{ question }}</h3>
+    <h3>Answer: {{ answer }}</h3>
+    {% endif %}
+</body>
+</html>
